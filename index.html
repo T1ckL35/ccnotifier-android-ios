@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notification Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/ccnotifier.js"></script>
+    <script type="text/javascript" src="local-notification.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // alert dialog dismissed
+        function alertDismissed() {
+            // do something
+        }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+        // window.plugin.notification.local.add({ message: 'Great app!' });
+        // navigator.notification.alert(
+        //     'You are the winner!',  // message
+        //     alertDismissed,         // callback
+        //     'Game Over',            // title
+        //     'Done'                  // buttonName
+        // );
+
+        ccnotifier.startChecks()
+        // ccnotifier.requestGames();
+
+//         var options = {
+//             'url': 'http://www.conquerclub.com/api.php?mode=player&un=simon.mann'
+//         };
+
+//         // TEST an ajax request
+//         var jqxhr = $.ajax({
+//             'url': options.url,
+//             'datatype': 'xml'
+//         })
+//         .done(function(xml) {
+//             console.log('callServer.done()');
+// //            dfd.resolve(xml);
+//         })
+//         .fail(function() {
+//             console.log('callServer.fail()');
+//         })
+//         .always(function() {
+//             // console.log('callServer.always()');
+//         });
+
+//         // Set another completion function for the request above
+//         jqxhr.always(function() {
+//             // console.log('callServer.always()');
+//         });
+
+        // // TEST saving to and reading from localstorage
+        // var testdata = {
+        //     'config_user': 'simon.mann',
+        //     'test2': 'second_value'
+        // };
+        // configStorage.saveData(testdata);
+        // var savedData = configStorage.getData();
+        // console.log(savedData);
+
+    }
+
+    </script>
+  </head>
+  <body>
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+  </body>
+</html>

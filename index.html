@@ -75,9 +75,55 @@
 
     }
 
+$( document ).ready(function() {
+    // grabs the config form data and if we have usable data then start checking for games
+    $('#config-start').on('click', function(event) {
+        event.preventDefault();
+        console.log('CLICKED');
+        // get, check, and if valid, save the config formdata
+        var formData = {
+            'config_user': $('#config_user').val(),
+            'config_interval': parseInt($('#config_interval').val()) || 0
+        }
+        ccnotifier.checkFormData(formData);
+    });
+
+    // stop polling the api
+    $('#config-stop').on('click', function(event) {
+        event.preventDefault();
+        // bgpage.ccnotifier.clearTimer();
+    });
+
+    // clear the form and localstorage data and stop polling
+    $('#config-clear').on('click', function(event) {
+        event.preventDefault();
+        // clearConfigForm();
+        // bgpage.ccnotifier.clearConfig();
+    });
+});
+
+
     </script>
   </head>
   <body>
     <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+    <div id="config">
+        <form id="config">
+        <dd>Username:<dd>
+        <dt><input type="text" id="config_user" name="config_user" value="simon.mann" /></dt>
+        <!--dd>Show eliminated games:<dd>
+        <dt><input type="checkbox" id="config_eliminated" name="config_eliminated" /></dt -->
+        <!--<dd>Show desktop notifications:<dd>
+        <dt><input type="checkbox" id="config_notifications" name="config_eliminated" /></dt>-->
+        <dd>Minutes between game check:<dd>
+        <dt><input type="text" id="config_interval" name="config_interval" value="1" /></dt>
+        <dd>
+            <input type="submit" id="config-start" name="start" value="start" />
+            <input type="submit" id="config-stop" name="stop" value="stop" />
+            <input type="submit" id="config-clear" name="clear" value="clear" />
+        </dd>
+        <dt></dt>
+        </form>
+      </div>
   </body>
 </html>
